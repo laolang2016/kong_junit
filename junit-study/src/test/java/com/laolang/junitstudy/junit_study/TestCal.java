@@ -2,8 +2,13 @@ package com.laolang.junitstudy.junit_study;
 
 //使用静态导入，将Assert中的所有static方法导入类中，可以兼容junit3
 import static org.junit.Assert.*;
+
+
+import static org.hamcrest.Matchers.*;
+
 import org.junit.Before;
 import org.junit.Test;
+
 
 /**
  * The Class TestCal.
@@ -40,6 +45,7 @@ public class TestCal {
 	/**
 	 * Test minus.
 	 */
+	@Test
 	public void testMinus() {
 		int rel = cal.minus(1, 3);
 		assertEquals("减法有问题", rel, -2);
@@ -48,6 +54,7 @@ public class TestCal {
 	/**
 	 * Test mul.
 	 */
+	@Test
 	public void testMul() {
 		int rel = cal.mul(3, 4);
 		assertEquals("乘法有问题", rel, 12);
@@ -56,8 +63,15 @@ public class TestCal {
 	/**
 	 * Test divided.
 	 */
+	@Test
 	public void testDivided() {
 		int rel = cal.divided(8, 2);
 		assertEquals("除法有问题", rel, 4);
+	}
+	
+	@Test
+	public void testHamcrest(){
+//		assertThat("hamcrest测试有问题", 50, allOf(greaterThan(20),lessThan(60)));
+		assertThat("hamcrest测试", 2, greaterThan(1));
 	}
 }
